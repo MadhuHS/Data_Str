@@ -1,6 +1,7 @@
 package com.jspiders.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.jspiders.models.User;
 
@@ -17,7 +18,7 @@ public interface Dao
   
    public User getUserProfileByEmail(String Email)throws SQLException;
    
-   public User[] getAllUsers() throws SQLException;
+   public List<User> getAllUsers() throws SQLException;
    
    
      

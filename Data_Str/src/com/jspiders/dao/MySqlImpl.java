@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import com.jspiders.models.User;
 
@@ -111,39 +113,36 @@ public class MySqlImpl implements Dao {
 	}
 
 	@Override
-	public User[] getAllUsers() throws SQLException
-	{
+	public List<User> getAllUsers() throws SQLException {
 		pms = con.prepareStatement(getAllUserProfiles);
-		
-	    ResultSet rs = pms.executeQuery();
-	    
-	    String countRecords = "select count(*) from usersdb.instausers";
-	   
-	    PreparedStatement pms2 = con.prepareStatement(countRecords);
-	    ResultSet rs2 = pms2.executeQuery();
-	    
-	    rs2.next();
-	    int len = rs2.getInt(1);
 
-	    User[] users = new User[len];
-	    
-	    int index = 0;
-	    while(rs.next() == true)
-	    {
-        
-	    users[index]  = new User();
-	    users[index].setName(rs.getString(2));
-	    users[index].setEmail(rs.getString(3));
-	    users[index].setMob(rs.getString(4));
-	    users[index].setDob(rs.getString(6));
-	    users[index].setGender(rs.getString(7));
-	    users[index].setBio(rs.getString(8));
-	    
-	    index++;
-	    }
-	    
-	    
-	    return users;
+		ResultSet rs = pms.executeQuery();
+
+		List<User> userList = new LinkedList<User>();
+
+		while (rs.next()) 
+		{
+			int columnIndex = 2;
+
+			User u1 = new User();
+			String name = rs.getString(columnIndex);
+
+			u1.setName(name);
+			columnIndex++;
+
+			u1.setEmail(rs.getString(columnIndex++));
+			u1.setMob(rs.getString(columnIndex++));
+			u1.setPwd(rs.getString(columnIndex++));
+			u1.setDob(rs.getString(columnIndex++));
+			u1.setGender(rs.getString(columnIndex++));
+			u1.setBio(rs.getString(columnIndex++));
+
+			userList.add(u1);
+
+		}
+
+		return userList;
 
 	}
+
 }

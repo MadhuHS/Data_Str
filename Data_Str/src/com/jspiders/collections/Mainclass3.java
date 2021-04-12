@@ -1,8 +1,8 @@
 package com.jspiders.collections;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 /* OPERATION         METHOD
  * no.of elements -> size()        --> common in all the Collections
@@ -17,24 +17,18 @@ public class Mainclass3
 {
 	public static void main(String[] args) 
 	{
-        ArrayList<Integer> a1 = new ArrayList<Integer>();
+        LinkedList<Integer> a1 = new LinkedList<Integer>();
    
         a1.add(10); //a1[0] = 10;
         a1.add(23);
         a1.add(15);
+        a1.add(null);
         a1.add(10);
         a1.add(12);
+        a1.add(null);
         a1.add(30);
         
-        Consumer<Integer> c1 = (Integer obj)->
-                      {
-                    	if(obj%2 == 0)
-                    	{
-        	            System.out.println(obj);
-                    	}
-                      };
-        
-        a1.forEach(c1);
+ 
         
         System.out.println("---------");
         

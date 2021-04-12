@@ -1,6 +1,7 @@
 package com.jspiders.services;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.jspiders.dao.MySqlImpl;
 import com.jspiders.models.User;
@@ -93,12 +94,12 @@ public class UserService {
 	public void showAllUsers() throws SQLException
 	{
 		ms.initDB();
-		User[] users = ms.getAllUsers();
 		
-		for (int i = 0; i < users.length; i++) 
-		{
-			System.out.println(users[i]);
-		}
+		List<User> usersList = ms.getAllUsers();
+		usersList.forEach(user -> System.out.println(user));
+		
+		//ms.getAllUsers().forEach(user -> System.out.println(user));
+		
 		ms.closeDB();
 		
 		

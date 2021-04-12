@@ -26,12 +26,7 @@
    
    
    * Linear DS are supported in the JCF through List type of Collection
-   
-   
-   
-   
-  
-   
+ 
    
    * List can store duplicates.
    * List has index.
@@ -59,6 +54,11 @@
    
    ArrayList(int initialCapacity)
    Constructs an empty list with the specified initial capacity.
+   
+   
+   Load Factor : It is a threshold that decides when should be
+                 the collection created based on elements added.
+     
    
    Methods of ArrayList
    
@@ -146,9 +146,7 @@
      should be stored within a reference variable 
      of Iterator type.
     
-   Load Factor : It is a threshold that decides when should be
-                 the collection created based on elements added.
-     
+   
    Constructor of HashSet 
    HashSet()
    Constructs a new, empty set with

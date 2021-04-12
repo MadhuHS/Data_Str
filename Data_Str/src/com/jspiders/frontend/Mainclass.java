@@ -100,7 +100,7 @@ public class Mainclass
 	{
 		UserService us = new UserService();
 		
-		int n= id+100000000;
+		int n= id+10;
 		
 		User u1 = new User();
 		
@@ -143,7 +143,8 @@ public class Mainclass
 	
 	public static void main(String[] args) 
 	{
-		loadDummyData(1);
+		//loadDummyData(1);
+		
 		UserService us = new UserService();
 		try 
 		{
