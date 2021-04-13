@@ -116,7 +116,7 @@
    
    * Set do not store duplicates.
    * Set don not have index.
-   * Set support to store ONLY ONE null values.
+   * Set support to store ONLY ONE null value.
    * Set do not preserve insertion order.
    
     
@@ -129,23 +129,7 @@
    
    * Underlying Data Structure of HashSet is Hash Table.
    
-   Iterator :
    
-   * Iterator is cursor which is used to retrieve the element
-     present in any given collection.
-     
-   * Iterator is created automatically whenever the collection
-     object is created.
-     
-   * For every Collection separate iterator is created.
-   
-   * We can access the iterator of the given collection
-     by calling iterator().
-     
-   * The iterator reference returned by the iterator()
-     should be stored within a reference variable 
-     of Iterator type.
-    
    
    Constructor of HashSet 
    HashSet()

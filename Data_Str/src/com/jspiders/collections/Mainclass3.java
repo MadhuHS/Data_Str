@@ -27,8 +27,7 @@ public class Mainclass3
         a1.add(12);
         a1.add(null);
         a1.add(30);
-        
- 
+       
         
         System.out.println("---------");
         

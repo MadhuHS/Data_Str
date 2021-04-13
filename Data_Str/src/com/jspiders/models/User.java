@@ -1,6 +1,6 @@
 package com.jspiders.models;
 
-public class User 
+public class User extends Object
 {
 	private int id;
 	private String name;
@@ -93,6 +93,20 @@ public class User
 	public String toString() {
 		return this.name +" "+ this.email +" "+this.mob+ " "+this.dob+ " "
 				+this.gender + " "+ this.bio;
+	}
+	
+	@Override
+	public boolean equals(Object obj) 
+	{
+		User u1 = (User)obj;
+		
+		String e1 = u1.getEmail();
+		String e2 = this.email;
+		
+		boolean b1 = e1.equals(e2);
+		
+		return b1;
+		
 	}
 	
 	
