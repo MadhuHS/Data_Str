@@ -254,6 +254,10 @@
  
      Comparable interface:
     
+    * Comparable interface must be implemented only by MODEL classes.
+    
+    * We can't create lambda functions for the Comparable interface.
+      
     * Comparable interface is used to provide Natural Sorting 
       Order for the object.
     
@@ -267,15 +271,17 @@
        Customized Sorting Order
        for the Object.
        
-     * To use Comparator Interface we have to follow 4 steps
+     * To use Comparator Interface we have to follow 2 steps
        
-       - Create a class that Implements Comparator Interface.
-       - Override compare() and specify your customized logic
-         to sort the objects.
-       - Create the implementation class Object.
-       - Pass implementation class Object's reference to the
-         constructor of TreeSet.
-   
+       - Create a lambda function of compare().
+       - Pass lambda function reference to the constructor of TreeSet.
+       
+     
+     * Comparator Interface is used in 2 cases
+       1. If we don't want to use Natural Sorting Order of the Model.
+       2. If Model class don't implements Comprable interface and do not
+          override compareTo().
+       
    -----------------------------------------------------------------------------
    
    Queue  

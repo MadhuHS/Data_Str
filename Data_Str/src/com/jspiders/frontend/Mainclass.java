@@ -148,7 +148,8 @@ public class Mainclass
 		UserService us = new UserService();
 		try 
 		{
-			us.showAllUsers();
+			//us.showAllUsers();
+			us.showAllUsersSortByEmail();
 		} 
 		catch (SQLException e) 
 		{

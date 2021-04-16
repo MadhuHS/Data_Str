@@ -2,6 +2,7 @@ package com.jspiders.services;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 import com.jspiders.dao.MySqlImpl;
 import com.jspiders.models.User;
@@ -97,6 +98,20 @@ public class UserService {
 		
 		List<User> usersList = ms.getAllUsers();
 		usersList.forEach(user -> System.out.println(user));
+		
+		//ms.getAllUsers().forEach(user -> System.out.println(user));
+		
+		ms.closeDB();
+		
+		
+	}
+	
+	public void showAllUsersSortByEmail() throws SQLException
+	{
+		ms.initDB();
+		
+	    Set<User> userSet = ms.getAllUsersSortByEmail();
+	    userSet.forEach(user -> System.out.println(user));
 		
 		//ms.getAllUsers().forEach(user -> System.out.println(user));
 		

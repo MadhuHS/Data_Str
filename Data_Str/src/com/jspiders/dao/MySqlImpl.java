@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.jspiders.models.User;
 
@@ -143,6 +145,38 @@ public class MySqlImpl implements Dao {
 
 		return userList;
 
+	}
+
+	@Override
+	public Set<User> getAllUsersSortByEmail() throws SQLException {
+		pms = con.prepareStatement(getAllUserProfiles);
+
+		ResultSet rs = pms.executeQuery();
+		
+		Set<User> userSet = new TreeSet<User>();
+
+		while (rs.next()) 
+		{
+			int columnIndex = 2;
+
+			User u1 = new User();
+			String name = rs.getString(columnIndex);
+
+			u1.setName(name);
+			columnIndex++;
+
+			u1.setEmail(rs.getString(columnIndex++));
+			u1.setMob(rs.getString(columnIndex++));
+			u1.setPwd(rs.getString(columnIndex++));
+			u1.setDob(rs.getString(columnIndex++));
+			u1.setGender(rs.getString(columnIndex++));
+			u1.setBio(rs.getString(columnIndex++));
+
+			userSet.add(u1);
+
+		}
+
+		return userSet;
 	}
 
 }

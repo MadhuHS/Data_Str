@@ -1,6 +1,6 @@
 package com.jspiders.models;
 
-public class User extends Object
+public class User extends Object implements Comparable<User>
 {
 	private int id;
 	private String name;
@@ -108,8 +108,19 @@ public class User extends Object
 		return b1;
 		
 	}
-	
-	
-	
+
+	@Override
+	public int compareTo(User usr) 
+	{
+        User u1 = (User)usr;
+		
+		String e1 = u1.getEmail();
+		String e2 = this.email;	
+		
+		int res = e1.compareTo(e2);
+		return res;
+	}
 	
 }
+
+

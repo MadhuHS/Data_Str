@@ -2,6 +2,7 @@ package com.jspiders.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 import com.jspiders.models.User;
 
@@ -20,7 +21,11 @@ public interface Dao
    
    public List<User> getAllUsers() throws SQLException;
    
+   public Set<User> getAllUsersSortByEmail() throws SQLException;
    
-     
+  
    public void closeDB()throws SQLException;
 }
+
+
+
