@@ -1,6 +1,7 @@
 package com.jspiders.services;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -118,6 +119,32 @@ public class UserService {
 		ms.closeDB();
 		
 		
+	}
+	
+	public void searchUser(String email) throws SQLException
+	{
+		HashMap<String, User>  userTable= ms.getUserTable();
+		User u1 = userTable.get(email);
+		if(u1!=null)
+		{
+	     System.out.println("User found");
+		 System.out.println(u1);		 
+		}
+		else
+		{
+			 ms.initDB();
+			 User u2  = ms.getUserProfileByEmail(email);
+			 ms.closeDB();
+			 if(u2!=null)
+			 {
+			 System.out.println("User found");
+			 System.out.println(u2);
+			 }
+			 else
+			 {
+				 System.out.println("USer not found");
+			 }
+		}
 	}
 	
 	

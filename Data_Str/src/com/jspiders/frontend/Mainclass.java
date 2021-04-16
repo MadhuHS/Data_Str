@@ -148,8 +148,14 @@ public class Mainclass
 		UserService us = new UserService();
 		try 
 		{
-			//us.showAllUsers();
-			us.showAllUsersSortByEmail();
+			us.showAllUsers();
+			
+			Scanner sc1 = new Scanner(System.in);
+			System.out.println("Enter email id for search");
+			
+			String email = sc1.next();
+			
+			us.searchUser(email);
 		} 
 		catch (SQLException e) 
 		{

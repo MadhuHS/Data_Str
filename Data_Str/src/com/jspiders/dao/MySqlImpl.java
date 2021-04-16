@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,15 @@ public class MySqlImpl implements Dao {
 	private String getUserProfile = "select * from usersdb.instausers where email = ?";
 	private String getAllUserProfiles = "select * from usersdb.instausers";
 
+	private HashMap<String,User> userTable = new HashMap<String,User>();
+	
+	
+	public HashMap<String,User> getUserTable()
+	{
+		return userTable;
+	}
+	
+	
 	@Override
 	public void initDB() throws SQLException {
 		con = DriverManager.getConnection(url + dbname, dbusername, dbuserpwd);
@@ -140,6 +150,8 @@ public class MySqlImpl implements Dao {
 			u1.setBio(rs.getString(columnIndex++));
 
 			userList.add(u1);
+			
+			userTable.put(rs.getString("email"), u1);
 
 		}
 

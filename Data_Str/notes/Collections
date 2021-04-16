@@ -418,10 +418,10 @@
      1.Making the given collection Type Safe.
      2.To avoid Unwanted down casting.
      
-    * generics are declared with Collection Decleartion
+    * generics are declared with Collection Dec,leartion
     * generics should be always written within angular brackets.
      
-     Syntax : CollectionName<Type> ref = new CollectionName<Type>();
+     Syntax : CollectionName.> ref = new CollectionName<Type>();
    
    
    
