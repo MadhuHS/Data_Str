@@ -1,5 +1,6 @@
 package com.jspiders.dao;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
@@ -8,7 +9,7 @@ import com.jspiders.models.User;
 
 public interface Dao 
 {
-   public void initDB()throws SQLException;
+   public void initDB()throws SQLException,IOException;
    
    public int insert(User us)throws SQLException;
    public int update(User us)throws SQLException;

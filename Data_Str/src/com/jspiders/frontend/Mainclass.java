@@ -132,7 +132,7 @@ public class Mainclass
 		  
 		  
 		}
-		catch(SQLException e)
+		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -157,7 +157,7 @@ public class Mainclass
 			
 			us.searchUser(email);
 		} 
-		catch (SQLException e) 
+		catch (Exception e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();

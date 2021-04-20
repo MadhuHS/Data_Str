@@ -1,5 +1,7 @@
 package com.jspiders.dao;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +11,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,10 +19,10 @@ import com.jspiders.models.User;
 
 public class MySqlImpl implements Dao {
 
-	private String url = "jdbc:mysql://localhost:3306/";
-	private String dbname = "usersdb";
-	private String dbusername = "root";
-	private String dbuserpwd = "root";
+	private String url;
+	private String dbname;
+	private String dbusername;
+	private String dbuserpwd;
 	private Statement stmt;
 	private PreparedStatement pms;
 	private Connection con;
@@ -40,7 +43,22 @@ public class MySqlImpl implements Dao {
 	
 	
 	@Override
-	public void initDB() throws SQLException {
+	public void initDB() throws SQLException,IOException
+	{
+		Properties dbProps = new Properties();
+		
+		String path = "/Users/Madhu/Documents/DataStructures/Data_Str/MysqlConfig.properties";
+		
+		FileInputStream fis = new FileInputStream(path);
+		
+		dbProps.load(fis);
+		
+		url = dbProps.getProperty("url","");
+		dbname = dbProps.getProperty("dbname","");
+		dbusername = dbProps.getProperty("dbusername","");
+		dbuserpwd = dbProps.getProperty("dbuserpwd","");
+		
+	
 		con = DriverManager.getConnection(url + dbname, dbusername, dbuserpwd);
 		stmt = con.createStatement();
 	}

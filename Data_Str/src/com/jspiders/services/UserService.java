@@ -1,5 +1,6 @@
 package com.jspiders.services;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ public class UserService {
 
 	private MySqlImpl ms = new MySqlImpl();
 	
-	public void login(String entEmail,String entPwd) throws SQLException
+	public void login(String entEmail,String entPwd) throws SQLException, IOException
 	{
 	  /*Step1 : getUserByEmail(email) --> 
 		Step2 : get email and pwd from the ResultSet
@@ -40,7 +41,7 @@ public class UserService {
 		ms.closeDB();
 	}
 	
-	public void signup(User us) throws SQLException
+	public void signup(User us) throws SQLException, IOException
 	{
 		ms.initDB();
 		
@@ -63,7 +64,7 @@ public class UserService {
 	 //after update 
 	}
 	
-	public void deleteProfile(String email) throws SQLException
+	public void deleteProfile(String email) throws SQLException, IOException
 	{
          ms.initDB();
 		
@@ -82,7 +83,7 @@ public class UserService {
 	  
 	}
 	
-	public void showProfile(String email)throws SQLException
+	public void showProfile(String email)throws SQLException, IOException
 	{
 	    ms.initDB();
 		
@@ -93,7 +94,7 @@ public class UserService {
 		ms.closeDB();
 	}
 	
-	public void showAllUsers() throws SQLException
+	public void showAllUsers() throws SQLException, IOException
 	{
 		ms.initDB();
 		
@@ -107,7 +108,7 @@ public class UserService {
 		
 	}
 	
-	public void showAllUsersSortByEmail() throws SQLException
+	public void showAllUsersSortByEmail() throws SQLException, IOException
 	{
 		ms.initDB();
 		
@@ -121,7 +122,7 @@ public class UserService {
 		
 	}
 	
-	public void searchUser(String email) throws SQLException
+	public void searchUser(String email) throws SQLException, IOException
 	{
 		HashMap<String, User>  userTable= ms.getUserTable();
 		User u1 = userTable.get(email);
